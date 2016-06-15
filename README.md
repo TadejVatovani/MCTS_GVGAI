@@ -1,7 +1,7 @@
 # MCTS_GVGAI
 Based on the gvgai framework
 
-Normally i'd recommend the open-loop implementation since most games are non-deterministic,and it's normally fast enough compared to the non-open-loop implementatio.
+Normally i'd recommend the open-loop implementation since most games are non-deterministic,and it's normally fast enough compared to the non-open-loop implementation.
 
 Giving it only 1 round of time isn't enough to make a useful tree so i don't recommend using act1.
 
