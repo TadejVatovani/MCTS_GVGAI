@@ -12,6 +12,8 @@ As described in the method description i wouldn't recommend using actremembern s
 I was testing this on windows so the elapsedTime wasn't as accurate so i didn't really bother with better time aproximation.
 
 Improvments that could be done:
+Dynamically configure n.
+
 Evaluating could be much better since gamescore normally doesn't give enough information.
 
 Try to figure out if the game is deterministic or non-deterministic with a few simulations at start then using the appropiate implementation.
