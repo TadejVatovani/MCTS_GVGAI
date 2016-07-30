@@ -6,7 +6,7 @@ A basic implementation of Monte-Carlo tree search based on the gvgai framework.
 
 I implemented an open-loop and a closed-loop. An open-loop MCTS recalculates values starting from the root, which works better for non-deterministic games where the states change with time. The closed-loop implementation just takes the previously saved state, which doesn't take in account any changes that could have occured.
 
-The methods it uses for determining the action to take are act1 and actforgetn. The act1 just builds a tree for 1 round(so 40 ms) and returns the best action it found. The actforgetn method takes a parameter n, which determines how many rounds the tree will be built for. Bigger n means a bigger tree which can help in making a better decision, but since many games are dependant on speed a smaller n is recommended. While it builds a tree the character does nothing(whichever action in the game is nil).
+The methods it uses for determining the action it will take are act1 and actforgetn. The act1 just builds a tree for 1 round(around 40 ms) and returns the best action it found. The actforgetn method takes a parameter n, which determines how many rounds the tree will be built for. A larger n means the built tree is larger which in turn helps making a better decision, but since many games are dependant on speed a smaller n is recommended. While it builds the tree the character does nothing(whichever action in the game is nil). Once it picks the best action the tree it built is forgotten.
 
 Testing:
 
