@@ -14,17 +14,17 @@ For the tests, each game was ran 4 times. OL stands for openloop, CL stands for 
 
 Due to a small sample size, the results are biased, but they can give a general idea.
 
-The numbers tested are: (Average score)/(Win/Loss ratio in %)
+The numbers tested are: Average score and win/loss ratio in %.
 
 Aliens:
 
-N 	OL			CL				
-	
-1	65.75/0%		67.5/0%
-2	62.25/25%		67.0/25%
-3	63.0/0%			50.25/0%
-5	35.0/0%			41.5/0%
-7	37.0/0%			30.0/0%
+| N     | OL/SCORE      |	OL/WL		|	CL/SCORE	|	CL/WL	
+| :---: |:-------------:| :-------------------:	| :-------------------:	| :-------------------:	|
+|1	| 65.75		|	0%		|	67.5		|	0%		|
+|2	| 62.25		|	25%		|	67.0		|	25%		|
+|3	| 63.0		|	0%		|	50.25		|	0%		|
+|5	| 35.0		|	0%		|	41.5		|	0%		|
+|7	| 37.0		|	0%		|	30.0		|	0%		|
 
 At high numbers of turns the AI reacted too slowly too dodge incoming attack.
 
@@ -34,25 +34,25 @@ Seeing as n=2 was the only one to get wins probably means that it's the best bal
 
 Pacman:
 
-N 	OL			CL			
-	
-1	265.75/0%		286.5/0%
-2	200.5/0%		190.0/0%
-3	190.25/0%		188.0/0%
-5	141.25/0%		164.75/0%
-7	133.75/0%		123.5/0%
+| N     | OL/SCORE      |	OL/WL		|	CL/SCORE	|	CL/WL	
+| :---: |:-------------:| :-------------------:	| :-------------------:	| :-------------------:	|
+|1	| 265.75	|	0%		|	286.5		|	0%		|
+|2	| 200.5		|	0%		|	190.0		|	0%		|
+|3	| 190.25	|	0%		|	188.0		|	0%		|
+|5	| 141.25	|	0%		|	164.75		|	0%		|
+|7	| 133.75	|	0%		|	123.5		|	0%		|
 
 Open-loop was a bit better at getting out of areas that were already empty(areas without any points to pick up). The AI never won the game since it never entered the exit(it almost did it a few times, but normally it just rotated in the area around the exit). The ideal n is either 2 or 3 since it can still run away from ghosts, but it does mean it's harder to find the exit since the MCTS tree is smaller so the search area is smaller.
 
 Sherrif:
 
-N 	OL			CL			
-	
-1	6.25/100%		7.25/100%
-2	0.75/25%		2.75/50%
-3	1/25%			2.0/50%
-5	0.75/25%		1.0/25%
-7	0.0/25%			0.0/25%
+| N     | OL/SCORE      |	OL/WL		|	CL/SCORE	|	CL/WL	
+| :---: |:-------------:| :-------------------:	| :-------------------:	| :-------------------:	|
+|1	| 6.25		|	100%		|	7.25		|	100%		|
+|2	| 0.75		|	25%		|	2.75		|	50%		|
+|3	| 1.0		|	25%		|	2.0		|	50%		|
+|5	| 0.75		|	25%		|	1.0		|	25%		|
+|7	| 0.0		|	25%		|	0.0		|	25%		|
 
 Open-loop and closed-loop were quite equal, with CL edging out due to speed, since this game requires faster decisions instead of slower and better decisions. This is also why the smaller MCTS tree size works better.
 
