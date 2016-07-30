@@ -10,7 +10,9 @@ The methods it uses for determining the action to take are act1 and actforgetn. 
 
 Testing:
 
-For the tests, each game was ran 4 times. OL stands for openloop, CL stands for closed-loop. The N corresponds to how many round the AI was given to build a tree.
+For the tests, each game was ran 4 times. OL stands for openloop, CL stands for closed-loop. The N corresponds to how many rounds the AI was given to build a tree.
+
+Due to a small sample size, the results are biased, but they can give a general idea.
 
 The numbers tested are: (Average score)/(Win/Loss ratio in %)
 
@@ -18,14 +20,15 @@ Aliens:
 
 N 	OL			CL				
 	
-		
 1	65.75/0%		67.5/0%
 2	62.25/25%		67.0/25%
-3	63.0/0%		50.25/0%
-5	35.0/0%		41.5/0%
-7	37.0/0%		30.0/0%
+3	63.0/0%			50.25/0%
+5	35.0/0%			41.5/0%
+7	37.0/0%			30.0/0%
 
-At high number of turns the AI reacted too slowly too dodge incoming attack so it lost quite quickly.
+At high numbers of turns the AI reacted too slowly too dodge incoming attack.
+
+Most losses are because the AI couldn't hunt down the 1 alien that survived, probably since the tree wasn't big enough to plan such a long sequence of actions. So it's a bit dependant on luck that an alien isn't on the other side of the screen.
 
 Seeing as n=2 was the only one to get wins probably means that it's the best balance between tree size and reaction time. 
 
@@ -39,7 +42,7 @@ N 	OL			CL
 5	141.25/0%		164.75/0%
 7	133.75/0%		123.5/0%
 
-Open-loop was a bit better at getting out of areas that were already empty(areas without any points to pick up). The AI never won the game since it never entered the exit(it almost did it a few times, but normally it just rotated in the area around the exit). The ideal n is either 2 or 3 since it can still run away from ghosts, but it does mean it's harder to find the exit since the MCTS tree is smaller.
+Open-loop was a bit better at getting out of areas that were already empty(areas without any points to pick up). The AI never won the game since it never entered the exit(it almost did it a few times, but normally it just rotated in the area around the exit). The ideal n is either 2 or 3 since it can still run away from ghosts, but it does mean it's harder to find the exit since the MCTS tree is smaller so the search area is smaller.
 
 Sherrif:
 
@@ -49,9 +52,9 @@ N 	OL			CL
 2	0.75/25%		2.75/50%
 3	1/25%			2.0/50%
 5	0.75/25%		1.0/25%
-7	0.0/25%		0.0/25%
+7	0.0/25%			0.0/25%
 
-Open-loop and closed-loop were quite equal, with CL edging out due to speed, since this game requires faster decisions instead of slower and better decisions. This is why the smaller MCTS tree size works better.
+Open-loop and closed-loop were quite equal, with CL edging out due to speed, since this game requires faster decisions instead of slower and better decisions. This is also why the smaller MCTS tree size works better.
 
 While the basic MCTS works there are a few improvements that could be done:
 
@@ -66,3 +69,4 @@ Figuring out if the game is deterministic or non-deterministic with a few simula
 Instead of building MCTS on actions a better idea would be to build it on coordinates(so you evaluate objects) and then use path-finding algorithms for better optimization.
 
 A better time evaluation function. But i was testing this on windows so I was limited by the elapsedTime method.
+
